@@ -1,0 +1,23 @@
+{
+  "name": "my-opencode-ntfy",
+  "version": "0.1.0",
+  "description": "OpenCode plugin that sends push notifications via ntfy",
+  "main": "dist/plugin.js",
+  "types": "dist/plugin.d.ts",
+  "files": ["dist/"],
+  "scripts": {
+    "build": "tsc",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": ["opencode", "plugin", "ntfy", "notifications"],
+  "license": "MIT",
+  "peerDependencies": {
+    "@opencode-ai/plugin": "^1.0.0"
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "^1.0.0",
+    "typescript": "^5.7.0",
+    "@types/bun": "^1.0.0"
+  }
+}
