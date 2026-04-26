@@ -11,7 +11,7 @@ import { sendNtfy } from "./ntfy.js"
 const plugin: Plugin = async (input: PluginInput) => {
   const { project, directory } = input
 
-  const config = loadConfig(directory)
+  const config = loadConfig()
   if (!config) {
     console.warn("[my-opencode-ntfy] No valid config, plugin disabled")
     return {}
