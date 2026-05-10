@@ -7,6 +7,7 @@ export async function handleSessionError(
   properties: Record<string, unknown>,
   projectName: string,
   tracker: FailureTracker,
+  timestamp?: string,
 ): Promise<void> {
   if (!config.notify.consecutiveFailure.enabled) return
 
@@ -25,7 +26,7 @@ export async function handleSessionError(
     await sendNtfy(config, {
       topic: config.topic,
       title: "❌ 连续 API 失败",
-      message: `连续失败: ${threshold} 次\n项目: ${projectName}\n最近错误: ${errorMsg}\n时间: ${new Date().toISOString()}`,
+      message: `连续失败: ${threshold} 次\n项目: ${projectName}\n最近错误: ${errorMsg}\n时间: ${timestamp ?? new Date().toISOString()}`,
       priority: 5,
       tags: ["x"],
     })

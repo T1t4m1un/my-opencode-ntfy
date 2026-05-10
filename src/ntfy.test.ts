@@ -125,7 +125,7 @@ describe("sendNtfy", () => {
 
     const body = JSON.parse(await calls[0].text())
     expect(body.priority).toBe(4)
-    expect(body.tags).toBe("white_check_mark,computer")
+    expect(body.tags).toEqual(["white_check_mark", "computer"])
     globalThis.fetch = originalFetch
   })
 })

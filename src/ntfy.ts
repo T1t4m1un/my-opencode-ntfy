@@ -19,7 +19,7 @@ export async function sendNtfy(config: PluginConfig, payload: NtfyPayload): Prom
   }
 
   if (payload.tags && payload.tags.length > 0) {
-    body.tags = payload.tags.join(",")
+    body.tags = payload.tags
   }
 
   const headers: Record<string, string> = {

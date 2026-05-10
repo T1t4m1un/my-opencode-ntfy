@@ -5,6 +5,7 @@ export async function handlePermissionAsked(
   config: PluginConfig,
   properties: Record<string, unknown>,
   projectName: string,
+  timestamp?: string,
 ): Promise<void> {
   if (!config.notify.permissionAsked.enabled) return
 
@@ -13,12 +14,11 @@ export async function handlePermissionAsked(
     : typeof properties.type === "string"
       ? String(properties.type)
       : "unknown"
-  const timestamp = new Date().toISOString()
 
   await sendNtfy(config, {
     topic: config.topic,
     title: "🔒 权限请求",
-    message: `工具: ${toolName}\n项目: ${projectName}\n时间: ${timestamp}`,
+    message: `工具: ${toolName}\n项目: ${projectName}\n时间: ${timestamp ?? new Date().toISOString()}`,
     priority: 4,
     tags: ["lock"],
   })
