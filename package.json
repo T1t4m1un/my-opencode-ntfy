@@ -2,8 +2,15 @@
   "name": "my-opencode-ntfy",
   "version": "0.1.0",
   "description": "OpenCode plugin that sends push notifications via ntfy",
+  "type": "module",
   "main": "dist/plugin.js",
   "types": "dist/plugin.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/plugin.js",
+      "types": "./dist/plugin.d.ts"
+    }
+  },
   "files": ["dist/"],
   "scripts": {
     "build": "tsc",
